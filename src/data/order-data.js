@@ -1,0 +1,56 @@
+export const SUPPLIERS_DETAILS = [
+  { label: "Supplier", text: "East coast Fruits & Vegetables" },
+  { label: "Shipping Date", text: "Thu, Feb 10" },
+  { label: "Total", text: "$15,028.3" },
+  { label: "Category", text: "Vegetables" },
+  { label: "Department", text: "300-444-678" },
+  { label: "Status", text: "Awaiting your approval" },
+];
+
+export const sampleProducts = [
+  {
+    id: 1,
+    quantity: 1,
+    name: "Product Title 1",
+    price: 10,
+    category: "Electronics",
+    brand: "Brand 1",
+    status: "",
+  },
+  {
+    id: 2,
+    quantity: 1,
+    name: "Product Title 2",
+    price: 20,
+    category: "Clothing",
+    brand: "Brand 2",
+    status: "",
+  },
+  {
+    id: 3,
+    quantity: 1,
+    name: "Product Title 3",
+    price: 30,
+    category: "Home",
+    brand: "Brand 3",
+    status: "",
+  },
+  {
+    id: 4,
+    quantity: 1,
+    name: "Product Title 4",
+    price: 40,
+    category: "Electronics",
+    brand: "Brand 1",
+    status: "",
+  },
+  {
+    id: 5,
+    quantity: 1,
+    name: "Product Title 5",
+    price: 50,
+    category: "Clothing",
+    brand: "Brand 2",
+    status: "",
+  },
+];
