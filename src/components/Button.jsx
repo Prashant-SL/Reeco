@@ -1,8 +1,8 @@
-const Button = ({ text, type = "primary", onClick, noStyle }) => {
+const Button = ({ text, type = "primary", onClick }) => {
   const btnCss =
     type === "primary"
       ? "text-white bg-green-800"
-      : !noStyle && "text-green-800 bg-white border border-green-800";
+      : "text-green-800 bg-white border border-green-800";
   return (
     <button
       onClick={onClick}
