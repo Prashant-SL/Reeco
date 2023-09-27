@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { sampleProducts } from "../data/order-data";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,10 +8,15 @@ import {
 } from "../Redux/reducers/orderReducer";
 
 const Dashboard = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const dispatch = useDispatch();
   const productsAddedRef = useRef(false);
 
   const data = useSelector((state) => state.order.products);
+  const filteredProducts = data.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     if (!productsAddedRef.current) {
@@ -23,12 +28,16 @@ const Dashboard = () => {
     }
   }, [dispatch]);
 
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
   const handleStatusUpdate = (productId, status) => {
     dispatch(updateProductStatus({ productId, status }));
   };
 
   const mapTables = () =>
-    data?.map((product) => (
+    filteredProducts?.map((product) => (
       <tr key={product.id} className="text-left">
         <td className="w-20">
           <img src="src/assets/Avocado Hass.jpg" />
@@ -76,6 +85,8 @@ const Dashboard = () => {
           className="border-2 rounded-2xl pl-4 w-2/6"
           type="text"
           placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchInputChange}
         />
         <div className="flex items-center gap-x-5 text-green-800">
           <Button type="secondary" text={"Add Item"} />
